@@ -1,17 +1,35 @@
-import React, {useState} from 'react'
-import { Button, Container } from 'reactstrap'
+import React, { useState } from 'react'
+import { Jumbotron, Container } from 'reactstrap'
+import Logo from './logo.svg'
+
+const ALL_EXPENSES = [
+  { id: 1, name: 'Buy a book', amount: 20 },
+  { id: 2, name: 'Buy a milk', amount: 5 },
+  { id: 3, name: 'Book a flight ticket', amount: 225 }
+]
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [expenses, setExpenses] = useState(ALL_EXPENSES)
 
   return (
-    <Container style={{ marginTop: 20 }}>
-      <p className="text-primary">You clicked {count} times.</p>
-      <Button onClick={() => setCount(count + 1)} color="success">
-        Increase the count
-      </Button> <Button onClick={() => setCount(count - 1)} color="danger">
-        Decrease the count
-      </Button>
+    <Container className="text-center">
+      <Jumbotron fluid>
+        <h3 className="display-6">
+          Expense Tracker React App
+          <img src={Logo} style={{ width: 50, height: 50 }} alt="react-logo" />
+        </h3>
+        <div>
+          <p>
+            Total Expense:{' '}
+            <span className="text-success">
+              ${' '}
+              {expenses.reduce((accumulator, currentValue) => {
+                return (accumulator += parseInt(currentValue.amount))
+              }, 0)}
+            </span>
+          </p>
+        </div>
+      </Jumbotron>
     </Container>
   )
 }
