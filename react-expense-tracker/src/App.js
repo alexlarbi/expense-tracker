@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Jumbotron, Container } from 'reactstrap'
 import Logo from './logo.svg'
 import Form from './components/Form'
+import List from './components/List'
 
 const ALL_EXPENSES = [
   { id: 1, name: 'Buy a book', amount: 20 },
@@ -30,6 +31,8 @@ function App() {
             </span>
           </p>
         </div>
+        <Form />
+        <List expenses={expenses} />
       </Jumbotron>
     </Container>
   )
