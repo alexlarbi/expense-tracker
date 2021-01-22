@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Jumbotron, Container } from 'reactstrap'
 import Logo from './logo.svg'
+import Form from './components/Form'
 
 const ALL_EXPENSES = [
   { id: 1, name: 'Buy a book', amount: 20 },
