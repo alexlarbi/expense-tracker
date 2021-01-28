@@ -9,8 +9,8 @@ import {
   Button
 } from 'reactstrap'
 
-const Form = () => (
-  <BTForm style={{ margin: 10 }}>
+const Form = ({ name, amount, handleName, handleAmount, handleSubmitForm }) => (
+  <BTForm style={{ margin: 10 }} onSubmit={handleSubmitForm}>
     <FormGroup className="row">
       <Label for="exampleEmail" sm={2}>
         Name of Expense
@@ -21,6 +21,8 @@ const Form = () => (
           name="name"
           id="expenseName"
           placeholder="Name of expense?"
+          value={name}
+          onChange={handleName}
         />
       </Col>
     </FormGroup>
@@ -34,6 +36,8 @@ const Form = () => (
           name="amount"
           id="expenseAmount"
           placeholder="0.00"
+          value={amount}
+          onChange={handleAmount}
         />
       </Col>
     </FormGroup>
