@@ -12,6 +12,23 @@ const ALL_EXPENSES = [
 
 function App() {
   const [expenses, setExpenses] = useState(ALL_EXPENSES)
+  const [name, setName] = useState('')
+  const [amount, setAmount] = useState('')
+
+  const handleName = event => {
+    console.log('Name ', event.target.value)
+    setName(event.target.value)
+  }
+  
+  const handleAmount = event => {
+    console.log('Amount ', event.target.value)
+    setAmount(event.target.value)
+  }
+
+  const handleSubmitForm = event => {
+    event.preventDefault()
+    // do something when submitting the form
+  }
 
   return (
     <Container className="text-center">
@@ -31,7 +48,13 @@ function App() {
             </span>
           </p>
         </div>
-        <Form />
+        <Form
+          name={name}
+          amount={amount}
+          handleName={handleName}
+          handleAmount={handleAmount}
+          handleSubmitForm={handleSubmitForm}
+        />
         <List expenses={expenses} />
       </Jumbotron>
     </Container>
