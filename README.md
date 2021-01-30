@@ -1,6 +1,6 @@
 # Expense Tracker
 
-Web application for keeping trak of expenses.
+Web application for keeping track of expenses.
 
 Built using Reach Hooks and LocalStorage API.
 
