@@ -14,6 +14,10 @@ function App() {
   const [name, setName] = useState('')
   const [amount, setAmount] = useState('')
 
+  const handleClearExpenses = () => {
+    setExpenses([])
+  }
+
   const handleName = event => {
     console.log('Name ', event.target.value)
     setName(event.target.value)
@@ -70,6 +74,7 @@ function App() {
           handleName={handleName}
           handleAmount={handleAmount}
           handleSubmitForm={handleSubmitForm}
+          handleClearExpenses={handleClearExpenses}
         />
         <List expenses={expenses} />
       </Jumbotron>
