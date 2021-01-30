@@ -42,6 +42,10 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    localStorage.setItem('expenses', JSON.stringify(expenses))
+  }, [expenses])
+
   return (
     <Container className="text-center">
       <Jumbotron fluid>
