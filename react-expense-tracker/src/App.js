@@ -4,11 +4,9 @@ import Logo from './logo.svg'
 import Form from './components/Form'
 import List from './components/List'
 
-const ALL_EXPENSES = [
-  { id: 1, name: 'Buy a book', amount: 20 },
-  { id: 2, name: 'Buy a milk', amount: 5 },
-  { id: 3, name: 'Book a flight ticket', amount: 225 }
-]
+const ALL_EXPENSES = localStorage.getItem('expenses')
+  ? JSON.parse(localStorage.getItem('expenses'))
+  : []
 
 function App() {
   const [expenses, setExpenses] = useState(ALL_EXPENSES)
@@ -27,7 +25,20 @@ function App() {
 
   const handleSubmitForm = event => {
     event.preventDefault()
-    // do something when submitting the form
+    //check whether the name is not empty and the amount is not negative
+    if (name !== '' && amount > 0) {
+      // single expense object
+      const expense = { name, amount }
+      // do not override previous values in the array
+      // use spread operator to access previous values
+      setExpenses([...expenses, expense])
+  
+      // clean input fields
+      setName('')
+      setAmount('')
+    } else {
+      console.log('Invalid expense name or the amount')
+    }
   }
 
   return (
