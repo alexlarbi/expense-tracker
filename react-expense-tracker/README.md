@@ -1,3 +1,9 @@
+# Expense Tracker
+
+Web application for keeping trak of expenses.
+
+Built using Reach Hooks and LocalStorage API.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
